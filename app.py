@@ -6,8 +6,8 @@ from langchain_community.document_loaders import YoutubeLoader,UnstructuredURLLo
 
 
 ## sstreamlit APP
-st.set_page_config(page_title="LangChain: Summarize Text From YT or Website", page_icon="🦜")
-st.title("🦜 LangChain: Summarize Text From YT or Website")
+st.set_page_config(page_title="LangChain: Summarize Text From Website", page_icon="🦜")
+st.title("🦜 LangChain: Summarize Text From  Website")
 st.subheader('Summarize URL')
 
 
@@ -28,12 +28,12 @@ Content:{text}
 """
 prompt=PromptTemplate(template=prompt_template,input_variables=["text"])
 
-if st.button("Summarize the Content from YT or Website"):
+if st.button("Summarize the Content from Website"):
     ## Validate all the inputs
     if not groq_api_key.strip() or not generic_url.strip():
         st.error("Please provide the information to get started")
     elif not validators.url(generic_url):
-        st.error("Please enter a valid Url. It can may be a YT video utl or website url")
+        st.error("Please enter a valid Url.")
 
     else:
         try:
