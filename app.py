@@ -2,7 +2,7 @@ import validators,streamlit as st
 from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 from langchain.chains.summarize import load_summarize_chain
-from langchain_community.document_loaders import YoutubeLoader,UnstructuredURLLoader
+from langchain_community.document_loaders import YoutubeLoader,WebBaseLoader
 
 
 ## sstreamlit APP
@@ -43,7 +43,7 @@ if st.button("Summarize the Content from Website"):
                     loader=YoutubeLoader.from_youtube_url(generic_url,add_video_info=True)
                     docs=loader.load()
                 else:
-                    loader=UnstructuredURLLoader(urls=[generic_url],ssl_verify=False,
+                    loader=WebBaseLLoader(urls=[generic_url],ssl_verify=False,
                                                  headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"})
                 docs=loader.load()
 
