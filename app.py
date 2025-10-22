@@ -43,8 +43,8 @@ if st.button("Summarize the Content from Website"):
                     loader=YoutubeLoader.from_youtube_url(generic_url,add_video_info=True)
                     docs=loader.load()
                 else:
-                    loader=WebBaseLLoader(urls=[generic_url],ssl_verify=False,
-                                                 headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"})
+                    loader = WebBaseLoader(generic_url)
+
                 docs=loader.load()
 
                 ## Chain For Summarization
